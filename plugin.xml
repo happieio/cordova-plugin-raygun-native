@@ -19,10 +19,8 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="application">
             <service   android:name="main.java.com.mindscapehq.android.raygun4android.RaygunPostService"
-                       android:exported="false"
-                       android:process=":raygunpostservice"/>
-            <meta-data android:name="com.mindscapehq.android.raygun4android.apikey"
-                       android:value="RAYGUN_API_KEY" />
+                       android:exported="false" android:process=":raygunpostservice"/>
+            <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="RAYGUN_API_KEY" />
         </config-file>
         <source-file src="src/android/RaygunNativePlugin.java" target-dir="src/io/happie/raygun"/>
         <source-file src="src/android/raygun4android-1.3.0.jar" target-dir="libs" />
