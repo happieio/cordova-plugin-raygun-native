@@ -1,15 +1,13 @@
 import Foundation
 import UIKit
+import Raygun4iOS
 
 @objc(RaygunNativePlugin) class RaygunNativePlugin : CDVPlugin  {
-
     func startNativeRaygun(command: CDVInvokedUrlCommand) {
-    //[Raygun sharedReporterWithApiKey:@"YOUR_APP_API_KEY"];
-    //[[Raygun sharedReporter] identify:@"UNIQUE_USER_IDENTITY"];
-        //options: NSMutableDictionary =
-        //NSMutableDictionary *options = [command argumentAtIndex:0];
-        //    NSString *identifier = [options objectForKey:@"value"];
-        //    if(identifier) { [[Crashlytics sharedInstance] setUserIdentifier:identifier]; }
+        var params: AnyObject = command.arguments[0] as AnyObject!
+        var user: String = params["user"] as AnyObject! as! String
+        var apiKey: String = params["api"] as AnyObject! as! String
+        Raygun.sharedReporterWithApiKey(apiKey)
+        Raygun.sharedReporter().identify(user)
     }
 }
-

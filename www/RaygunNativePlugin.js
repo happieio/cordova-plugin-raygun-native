@@ -1,6 +1,6 @@
 module.exports = {
-    startNativeRaygun: function (userIdentifier) {
-        var defaults = {value: userIdentifier};
+    startNativeRaygun: function (userIdentifier, apiKey) {
+        var defaults = {user: userIdentifier, api: apiKey};
         cordova.exec(null, null, "CrashlyticsPlugin", "startNativeRaygun", [defaults]);
     }
 };
