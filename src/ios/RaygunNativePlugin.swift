@@ -10,4 +10,9 @@ import Raygun4iOS
         Raygun.sharedReporterWithApiKey(apiKey)
         Raygun.sharedReporter().identify(user)
     }
+
+    func testCrash(command: CDVInvokedUrlCommand) {
+        var crashWithMissingValueInDicitonary = Dictionary<Int,Int>()
+        let crashInt = crashWithMissingValueInDicitonary[1]!
+    }
 }

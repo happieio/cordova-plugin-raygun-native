@@ -17,6 +17,7 @@ public class RaygunNativePlugin extends CordovaPlugin {
     public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext) {
         Log.d(pluginName, pluginName + " called with options: " + data);
         if (action.equals("startNativeRaygun")) startNativeRaygun(data, callbackContext);
+        else if(action.equals("testCrash")) testCrash();
         return true;
     }
 
@@ -39,5 +40,9 @@ public class RaygunNativePlugin extends CordovaPlugin {
                 }
             }
         });
+    }
+
+    private void testCrash() {
+        throw new RuntimeException("This is a crash");
     }
 }
