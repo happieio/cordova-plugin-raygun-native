@@ -23,6 +23,7 @@
 */
 
 #import <Foundation/Foundation.h>
+#import "RaygunUserInfo.h"
 
 @interface Raygun : NSObject
 
@@ -38,7 +39,7 @@
 
  @return A new singleton crash reporter with the given API key, or an existing reporter. The existing reporter will have the originally
          specified API key
-*/
+ */
 + (id)sharedReporterWithApiKey:(NSString *)theApiKey;
 
 /**
@@ -54,12 +55,25 @@
 + (id)sharedReporterWithApiKey:(NSString *)theApiKey withCrashReporting:(bool)crashReporting;
 
 /**
+ Creates and returns a singleton raygun reporter with the given API key and an option to disable crash reporting.
+ If a singleton has already been created, this method has no effect
+ 
+ @param theApiKey The Raygun API key
+ @param crashReporting Whether or not to enable crash reporting
+ @param omitMachineName Whether or not to prevent sending the machine name
+ 
+ @return A new singleton crash reporter with the given API key, or an existing reporter. The existing reporter will have the originally
+ specified API key
+ */
++ (id)sharedReporterWithApiKey:(NSString *)theApiKey withCrashReporting:(bool)crashReporting omitMachineName:(bool)omitMachineName;
+
+/**
  Returns the shared singleton crash reporter instance
  
  @warning This method does not create an instance of the crash reporter
  
  @return The existing shared singleton crash reporter instance or nil if it has not been created yet.
-*/
+ */
 + (id)sharedReporter;
 
 /**
@@ -72,7 +86,7 @@
  @param theApiKey the Raygun API key
  
  @return a new raygun crash reporter
-*/
+ */
 - (id)initWithApiKey:(NSString *)theApiKey;
 
 /**
@@ -90,17 +104,32 @@
 - (id)initWithApiKey:(NSString *)theApiKey withCrashReporting:(bool)crashReporting;
 
 /**
+ Creates and returns a raygun reporter with the given API key and an option to disable crash reporting.
+ Use this to manage the crash reporter singleton yourself.
+ 
+ @warning you should only have one instance of the reporter for your application, do not create multiple instances of the reporter
+ or use the shared reporter along side this method.
+ 
+ @param theApiKey the Raygun API key
+ @param crashReporting Whether or not to enable crash reporting
+ @param omitMachineName Whether or not to prevent sending the machine name
+ 
+ @return a new raygun crash reporter
+ */
+- (id)initWithApiKey:(NSString *)theApiKey withCrashReporting:(bool)crashReporting omitMachineName:(bool)omitMachineName;
+
+/**
  Generates a crash report at the current execution point. Useful for testing the crash reporter setup.
  
  @warning this will not crash your application, only send a crash report to Raygun.
-*/
+ */
 - (void)crash;
 
 /**
   Manually send an exception to Raygun with the current state of execution.
  
   @warning backtrace will only be populated if you have caught the exception
-*/
+ */
 - (void)send:(NSException *)exception;
 
 /**
@@ -131,7 +160,15 @@
  Identify a user to Raygun. This can be a database id or an email address. Anonymous users
  will have a device id generated for them, you do not need to call this method to identify
  anonymous users.
-*/
+ 
+ @warning this method will do nothing if you also call the identifyWithUserInfo method.
+ */
 - (void)identify:(NSString *)userId;
+
+/**
+ Identify a user to Raygun, optionally providing name and contact information.
+ The information set with this method will take precedence over the identify method.
+ */
+- (void)identifyWithUserInfo:(RaygunUserInfo *)userInfo;
 
 @end

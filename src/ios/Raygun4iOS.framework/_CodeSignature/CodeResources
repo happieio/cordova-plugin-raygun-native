@@ -6,15 +6,19 @@
 	<dict>
 		<key>Headers/Raygun.h</key>
 		<data>
-		DgBg4U5iBTIJ78rEjya8bFX/F9g=
+		ugO8Xho4eI+DLesH/U+d5yIzULg=
 		</data>
 		<key>Headers/Raygun4iOS.h</key>
 		<data>
-		8QIeWZ6k9S+Tf8QNEL94ODxeqP8=
+		imtv3nJKVcokZ0b0f9e4pkeEar4=
+		</data>
+		<key>Headers/RaygunUserInfo.h</key>
+		<data>
+		pkIpeyjzSeuAY5k320SecTe63rE=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		tCO74x3TmyXwjlqc/NlbRCU72AQ=
+		DRJDGeI3CH5Z3a/T+n2nQMl7gJY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -34,11 +38,15 @@
 	<dict>
 		<key>Headers/Raygun.h</key>
 		<data>
-		DgBg4U5iBTIJ78rEjya8bFX/F9g=
+		ugO8Xho4eI+DLesH/U+d5yIzULg=
 		</data>
 		<key>Headers/Raygun4iOS.h</key>
 		<data>
-		8QIeWZ6k9S+Tf8QNEL94ODxeqP8=
+		imtv3nJKVcokZ0b0f9e4pkeEar4=
+		</data>
+		<key>Headers/RaygunUserInfo.h</key>
+		<data>
+		pkIpeyjzSeuAY5k320SecTe63rE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
