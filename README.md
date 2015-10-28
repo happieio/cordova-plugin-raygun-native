@@ -2,10 +2,9 @@
 iOS and Android native side integration of Raygun for cordova projects.
 
 ## SETUP
-add the following to your config.xml
 
-    <platform name="android">
-        <config-file target="AndroidManifest.xml" parent="application">
-            <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="Your_RayGun_API_Key" />
-        </config-file>
-    </platform>
+to set your android api use the plugin variable when adding to your project
+    cordova plugin add https://github.com/happieio/cordova-plugin-raygun-native.git --variable ANDROID_API_KEY="YOUR_API_KEY_HERE"
+    
+For iOS pass in your API via the JS Interface during/after the device ready callback
+    RaygunNativePlugin.startNativeRaygun('user_email_address', 'YOUR_API_KEY_HERE');
