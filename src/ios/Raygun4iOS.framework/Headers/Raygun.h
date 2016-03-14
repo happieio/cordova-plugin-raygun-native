@@ -29,6 +29,10 @@
 
 @property (nonatomic, readonly, copy) NSString *apiKey;
 
+@property (nonatomic, readwrite, copy) NSString *applicationVersion;
+
+@property (nonatomic, readwrite, retain) NSArray *tags;
+
 @property (nonatomic, readwrite, retain) NSDictionary *userCustomData;
 
 /**
