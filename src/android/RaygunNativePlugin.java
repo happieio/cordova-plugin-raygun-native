@@ -32,8 +32,9 @@ public class RaygunNativePlugin extends CordovaPlugin {
                     JSONObject obj = data.getJSONObject(0);
                     String message;
                     if (obj.has("user")) {
-                        String userId = obj.getString("user");
-                        RaygunClient.SetUser(userId);
+                        RaygunUserInfo user = new RaygunUserInfo();
+                        user.FullName = obj.getString("user");
+                        RaygunClient.SetUser(user);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -43,6 +44,9 @@ public class RaygunNativePlugin extends CordovaPlugin {
     }
 
     private void testCrash() {
+        Integer integers[] = new Integer[Integer.MAX_VALUE];
+        integers[2147483647] = 2147483647+1;
+        testCrash();
         throw new RuntimeException("This is a crash");
     }
 }
