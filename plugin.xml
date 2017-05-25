@@ -25,8 +25,11 @@
                        android:exported="false" android:process=":raygunpostservice"/>                       
 	        <meta-data android:name="com.mindscapehq.android.raygun4android.apikey" android:value="$ANDROID_API_KEY"/>                   
         </config-file>
+        <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>
         <source-file src="src/android/RaygunNativePlugin.java" target-dir="src/io/happie/raygun"/>
-        <source-file src="src/android/raygun4android-3.0.0.jar" target-dir="libs" />
+        <framework src="com.mindscapehq.android:raygun4android:3.0.0"/>
+        <framework src="com.mindscapehq.android:raygun4android:3.0.0:sources"/>
+
     </platform>
 
 <platform name="ios">

@@ -1,0 +1,5 @@
+dependencies {
+    compile 'com.google.code.gson:gson:2.1'
+    compile 'com.mindscapehq.android:raygun4android:3.0.0'
+    compile 'com.mindscapehq.android:raygun4android:3.0.0:sources'
+}
