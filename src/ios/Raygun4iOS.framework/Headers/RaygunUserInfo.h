@@ -18,28 +18,33 @@
  enter it here as well as the email field.
  
  @warning The identifier must be set in order for any of the other fields to be sent.
-*/
+ */
 @property (nonatomic, readwrite, retain) NSString *identifier;
+
+/**
+ * Device Identifier.
+ */
+@property (nonatomic, readwrite, retain) NSString *uuid;
 
 /**
  Flag indicating whether a user is anonymous or not.
  Generally, set this to true if the user is not logged in.
-*/
+ */
 @property (nonatomic, readwrite) BOOL isAnonymous;
 
 /**
  User's email address
-*/
+ */
 @property (nonatomic, readwrite, retain) NSString *email;
 
 /**
  User's full name.
-*/
+ */
 @property (nonatomic, readwrite, retain) NSString *fullName;
 
 /**
  User's first or preferred name.
-*/
+ */
 @property (nonatomic, readwrite, retain) NSString *firstName;
 
 /**
@@ -82,6 +87,33 @@
             withFullName:(NSString *)fullName
            withFirstName:(NSString *)firstName
          withIsAnonymous:(BOOL) isanonymous;
+
+/**
+ Creates and returns a RaygunUserInfo object.
+ 
+ @param identifier The unique user identifier that you use internally to look up users.
+ @param email The user's email address.
+ @param fullName The user's full name.
+ @param firstName The user's first or preferred name.
+ @param isAnonymous True if the user is not logged in, or however you want to define anonymous.
+ @param uuid Device identifier.
+ 
+ @return a new RaygunUserInfo object.
+ */
+- (id)initWithIdentifier:(NSString *)identifier
+               withEmail:(NSString *)email
+            withFullName:(NSString *)fullName
+           withFirstName:(NSString *)firstName
+         withIsAnonymous:(BOOL) isanonymous
+                withUuid:(NSString *)uuid;
+
+/**
+ Creates and returns a dictionary with the classes properties and their values. 
+ Used when constructing the crash report that is sent to Raygun.
+ 
+ @return a new Dictionary with the classes properties and their values.
+ */
+-(NSDictionary * )convertToDictionary;
 
 @end
 

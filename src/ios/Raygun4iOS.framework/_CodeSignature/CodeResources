@@ -6,19 +6,39 @@
 	<dict>
 		<key>Headers/Raygun.h</key>
 		<data>
-		CVMzhJsyf0XzmqFrcSfRDQTdluY=
+		/3JPvmMh00abPaqwC0TJpW1IoBo=
 		</data>
 		<key>Headers/Raygun4iOS.h</key>
 		<data>
 		yvipt7p5jd7Aihs2KT10ggDWRyg=
 		</data>
+		<key>Headers/RaygunClientMessage.h</key>
+		<data>
+		9GDlAanjb4iHobIQB/KTwEqPxNo=
+		</data>
+		<key>Headers/RaygunEnvironmentMessage.h</key>
+		<data>
+		i4EY28Pdh28AUP377crDnRpcjMg=
+		</data>
+		<key>Headers/RaygunErrorMessage.h</key>
+		<data>
+		YD2DAY2I45TkV7FtNJ588xamYQI=
+		</data>
+		<key>Headers/RaygunMessage.h</key>
+		<data>
+		Vp3z+NIEVz77tM5NoT02S2OzxOU=
+		</data>
+		<key>Headers/RaygunMessageDetails.h</key>
+		<data>
+		2ZPMWU0wnLDIe7jQ5zVbZutCQ7s=
+		</data>
 		<key>Headers/RaygunUserInfo.h</key>
 		<data>
-		pkIpeyjzSeuAY5k320SecTe63rE=
+		j//wWxrj1rL8QozFMedU9qfHKbk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		muk7NJs4J0CaBbM1ujdXwhwv53w=
+		Sbx4DaW54U8o3IuR+PEN7+s3yPE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -40,11 +60,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			CVMzhJsyf0XzmqFrcSfRDQTdluY=
+			/3JPvmMh00abPaqwC0TJpW1IoBo=
 			</data>
 			<key>hash2</key>
 			<data>
-			jzv+FUzc9lAL6iljMzMh+EdcIEI0w4tF5liN6ilbsDk=
+			Fxh3OBj+bHSuHdueG2MpkdZ1t39Qog2eZe63R976fcs=
 			</data>
 		</dict>
 		<key>Headers/Raygun4iOS.h</key>
@@ -58,15 +78,70 @@
 			Fb9fPTppttLASgLl0lsDlI5/EoAtgILulIqtZQzkG90=
 			</data>
 		</dict>
+		<key>Headers/RaygunClientMessage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9GDlAanjb4iHobIQB/KTwEqPxNo=
+			</data>
+			<key>hash2</key>
+			<data>
+			qoUDydQOC2/9HNmk+CbftyrAhsyZBKgjXP2XvfJJ6wA=
+			</data>
+		</dict>
+		<key>Headers/RaygunEnvironmentMessage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			i4EY28Pdh28AUP377crDnRpcjMg=
+			</data>
+			<key>hash2</key>
+			<data>
+			26QpFLf39cRGzCqcrCA1ub9YiVYdgycod1XX+cYR61k=
+			</data>
+		</dict>
+		<key>Headers/RaygunErrorMessage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			YD2DAY2I45TkV7FtNJ588xamYQI=
+			</data>
+			<key>hash2</key>
+			<data>
+			UO0fOYKn77vT4xI9DT6OAakFD0j4GkVtW++8ZdPG/e4=
+			</data>
+		</dict>
+		<key>Headers/RaygunMessage.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Vp3z+NIEVz77tM5NoT02S2OzxOU=
+			</data>
+			<key>hash2</key>
+			<data>
+			nLgsCF3omL3s+GaW7AgW/T4Z2vCeh9DuvDJAlrvt354=
+			</data>
+		</dict>
+		<key>Headers/RaygunMessageDetails.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			2ZPMWU0wnLDIe7jQ5zVbZutCQ7s=
+			</data>
+			<key>hash2</key>
+			<data>
+			lbWGc+sHOpAFG1mwSn2nw7cCWJnuDdaawisAHzj6Pg4=
+			</data>
+		</dict>
 		<key>Headers/RaygunUserInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pkIpeyjzSeuAY5k320SecTe63rE=
+			j//wWxrj1rL8QozFMedU9qfHKbk=
 			</data>
 			<key>hash2</key>
 			<data>
-			p2BZEbbuawSngQk+kkIkODLArEDAO686lkI+wBawdcM=
+			2w8rjKOPEde9hlMvEOB+d6pEn6r6D9bvlzRD5LVH8XA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

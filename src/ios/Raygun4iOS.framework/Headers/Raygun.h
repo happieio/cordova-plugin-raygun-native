@@ -24,11 +24,27 @@
 
 #import <Foundation/Foundation.h>
 #import "RaygunUserInfo.h"
+#import "RaygunMessage.h"
 
 typedef enum {
     ViewLoaded,
     NetworkCall
 } RaygunPulseEventType;
+
+
+
+@protocol RaygunOnBeforeSendDelegate
+/**
+ A protocol to receive a callback before a crash report is sent to Raygun. 
+ The message can then be inspected and modified as needed before being sent.
+ 
+ @param message The crash report to be sent to Raygun.
+ 
+ @return Yes to send the message or NO to cancel sending the message.
+ */
+- (bool)onBeforeSend:(RaygunMessage *)message;
+@end
+
 
 @interface Raygun : NSObject
 
@@ -39,6 +55,8 @@ typedef enum {
 @property (nonatomic, readwrite, retain) NSArray *tags;
 
 @property (nonatomic, readwrite, retain) NSDictionary *userCustomData;
+
+@property (nonatomic, readwrite, retain) id onBeforeSendDelegate;
 
 /**
  Creates and returns a singleton raygun reporter with the given API key. The reporter will automatically report crashes.
@@ -143,6 +161,13 @@ typedef enum {
  @return a new raygun crash reporter
  */
 - (id)initWithApiKey:(NSString *)theApiKey withCrashReporting:(bool)crashReporting omitMachineName:(bool)omitMachineName;
+
+/**
+ Assign a delegate to receive a notification when a crash report is about to be sent.
+ 
+ @param delegate the RaygunOnBeforeSendDelegate instance to receive notifications.
+ */
+- (void)setOnBeforeSendDelegate:(id)delegate;
 
 /**
  Generates a crash report at the current execution point. Useful for testing the crash reporter setup.
