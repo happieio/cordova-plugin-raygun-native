@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
-//import Raygun4iOS
+import Raygun4iOS
 
 @objc(RaygunNativePlugin) class RaygunNativePlugin : CDVPlugin  {
     func startNativeRaygun(_ command: CDVInvokedUrlCommand) {
