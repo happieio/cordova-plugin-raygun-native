@@ -3,6 +3,8 @@ import UIKit
 import Raygun4iOS
 
 @objc(RaygunNativePlugin) class RaygunNativePlugin : CDVPlugin  {
+
+    @objc(startNativeRaygun:)
     func startNativeRaygun(_ command: CDVInvokedUrlCommand) {
         let params: [String: Any] = command.arguments[0] as! [String: Any]
         let user: String = params["user"] as! String
