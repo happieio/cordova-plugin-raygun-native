@@ -12,6 +12,18 @@ import Raygun4iOS
         Raygun.sharedReporter(withApiKey: apiKey)
         (Raygun.sharedReporter() as AnyObject).identify(user)
     }
+    
+    @objc(updateNativeLogs:)
+    func updateNativeLogs(_ command: CDVInvokedUrlCommand) {
+        let logs = command.arguments[0] as! String
+        if let data = logs.data(using: .utf8) {
+            do {
+                let dict = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                (Raygun.sharedReporter() as! Raygun).userCustomData = dict;
+            } catch {
+            }
+        }
+    }
 
     func testCrash(_ command: CDVInvokedUrlCommand) {
         var crashWithMissingValueInDicitonary = Dictionary<Int,Int>()

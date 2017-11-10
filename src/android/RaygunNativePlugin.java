@@ -10,6 +10,8 @@ import main.java.com.mindscapehq.android.raygun4android.messages.RaygunUserInfo;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.HashMap;
+
 public class RaygunNativePlugin extends CordovaPlugin {
     private final String pluginName = "RaygunNativePlugin";
 
@@ -17,6 +19,7 @@ public class RaygunNativePlugin extends CordovaPlugin {
     public boolean execute(final String action, final JSONArray data, final CallbackContext callbackContext) {
         Log.d(pluginName, pluginName + " called with options: " + data);
         if (action.equals("startNativeRaygun")) startNativeRaygun(data, callbackContext);
+        else if (action.equals("updateNativeLogs")) updateNativeLogs(data, callbackContext);
         else if(action.equals("testCrash")) testCrash();
         return true;
     }
@@ -35,6 +38,25 @@ public class RaygunNativePlugin extends CordovaPlugin {
                         user.setFullName(obj.getString("user"));
                         RaygunClient.setUser(user);
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void updateNativeLogs(final JSONArray data, final CallbackContext callbackContext) {
+        this.cordova.getThreadPool().execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    JSONArray array = data.getJSONArray(0);
+                    HashMap<Integer, String> mMap= new HashMap<Integer, String>();
+                    for (int i = 0; i < array.length(); i++) {
+                        String j = (String)array.get(i);
+                        mMap.put(i, j);
+                    }
+                    RaygunClient.setUserCustomData(mMap);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
